@@ -1,19 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""
-Polazni kod treba samo da se promeni da radi nad mojim CSV-om, a sintetička od demoa izbaciti. 
-
-Razumeo. Pravilo za sve buduće modele:
-
-polazni kod iz članka se direktno menja da radi nad tvojim loto CSV-om
-sintetička demo data, neiskorišćeni delovi, sve što ne pripada polaznom zadatku se izbacuje
-predviđa se sledeće loto kolo + back-test, snimanje u TXT
-bez paralelnih "novih" klasa ispod polaznog, bez pitanja
-"""
-
-
-
 
 """
 Hibridne arhitekture za predikciju koje kombinuju deep learning i klasične time-series modele.
@@ -128,8 +115,8 @@ class DeepARPlus(nn.Module):
 # =========================
 # Učitavanje Loto 7/39 CSV-a
 # =========================
-CSV_PATH = "/Users/4c/Desktop/GHQ/KvantniRegresor/loto7hh_4620_k41.csv"
-OUT_TXT = Path("/Users/4c/Desktop/GHQ/TimeSeriesModels/3_DeepAR_loto_v2_predikcija.txt")
+CSV_PATH = "/loto7hh_4620_k41.csv"
+OUT_TXT = Path("/3_DeepAR_loto_v2_predikcija.txt")
 
 N_MIN, N_MAX = 1, 39
 K = 7
@@ -495,9 +482,9 @@ Epoch 100/100, NLL: 1.1216, val_NLL: 1.1479, best_epoch: 10
 ✅ Trening završen. best_epoch=10, best_val_loss=1.13672
 
 Predikcija sledeće Loto 7/39 kombinacije:
-DeepAR_best     -> [8, 22, 23, 26, 32, 33, 37]  (suma=181, neparnih=3/7, niskih(<=19)=1/7, raspon=29)
-DeepAR_final    -> [10, 13, 20, 23, 27, 32, 37]  (suma=162, neparnih=4/7, niskih(<=19)=2/7, raspon=27)
-DeepAR_ensemble -> [10, 13, 20, 23, 32, 33, 37]  (suma=168, neparnih=4/7, niskih(<=19)=2/7, raspon=27)
+DeepAR_best     -> [8, x, 23, y, 32, z, 37]  (suma=181, neparnih=3/7, niskih(<=19)=1/7, raspon=29)
+DeepAR_final    -> [10, x, 20, y, 27, z, 37]  (suma=162, neparnih=4/7, niskih(<=19)=2/7, raspon=27)
+DeepAR_ensemble -> [10, x, 20, y, 32, z, 37]  (suma=168, neparnih=4/7, niskih(<=19)=2/7, raspon=27)
 
 Back-test (poslednjih 100 izvlačenja):
 model              hits/7    hit%     AUC    LRAP
